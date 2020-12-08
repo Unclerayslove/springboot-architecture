@@ -1,0 +1,21 @@
+server:
+  port: 8025
+
+spring:
+  application:
+    name: cu-corpvrbt-web-server
+  datasource:
+    driver-class-name: com.informix.jdbc.IfxDriver
+    url: jdbc:informix-sqli://192.168.105.207:7779/newmin:informixserver=appdb1;NEWLOCALE=zh_CN,en_us;NEWCODESET=gbk,8859-1,819;IFX_LOCK_MODE_WAIT=10;ifx_use_strenc=true
+    username: informix
+    password: EEbupt_XL2020$
+logging:
+  level:
+    ROOT: INFO
+    com.zaxxer.hikari.pool.HikariPool: WARN       #HikariPool 为error级别
+    com.ebupt.cu.web.dao: debug  #设置mapper的日志级别, 将SQL打印
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  type-aliases-package: com.ebupt.cu.web.model.pojo
+  mapper-locations: classpath:mapper/*.xml

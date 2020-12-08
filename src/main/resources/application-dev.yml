@@ -1,0 +1,20 @@
+server:
+  port: 8025
+
+spring:
+  datasource:
+    driver-class-name: com.informix.jdbc.IfxDriver
+    url: jdbc:informix-sqli://10.1.69.150:7775/cuvrbt:informixserver=dbserver;NEWLOCALE=zh_CN,en_us;NEWCODESET=gbk,8859-1,819;IFX_LOCK_MODE_WAIT=10;ifx_use_strenc=true
+    username: cuvrbt
+    password: 1qaz@WSX
+logging:
+  level:
+    ROOT: INFO
+    com.zaxxer.hikari.pool.HikariPool: WARN       #HikariPool 为error级别
+    com.ebupt.cu.web.dao: debug  #设置dao的日志级别, 将SQL打印
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.ebupt.cu.web.model.po
+  mapper-locations: classpath:mapper/*.xml
